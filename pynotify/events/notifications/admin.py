@@ -9,7 +9,7 @@ class NotificationAdmin(BaseEvent):
             payload=payload
         )
 
-    def service_autoscale_updated(self, topic, tenant_id, payload):
+    def service_auto_scale_updated(self, topic, tenant_id, payload):
         return self.kafka_client.send_event(
             topic=topic,
             key=tenant_id,
@@ -23,7 +23,7 @@ class NotificationAdmin(BaseEvent):
             payload=payload
         )
 
-    def service_callcenter_updated(self, topic, tenant_id, payload):
+    def service_call_center_updated(self, topic, tenant_id, payload):
         return self.kafka_client.send_event(
             topic=topic,
             key=tenant_id,
@@ -59,13 +59,6 @@ class NotificationAdmin(BaseEvent):
         )
 
     def service_kubernetes_updated(self, topic, tenant_id, payload):
-        return self.kafka_client.send_event(
-            topic=topic,
-            key=tenant_id,
-            payload=payload
-        )
-
-    def service__updated(self, topic, tenant_id, payload):
         return self.kafka_client.send_event(
             topic=topic,
             key=tenant_id,

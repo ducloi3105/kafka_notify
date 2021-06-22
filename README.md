@@ -7,7 +7,7 @@ Cài đặt sử dụng thông qua**pip**
 
     pip install git+https://github.com/ducloi3105/kafka_notify.git
 
-hoặc thông quan mã nguồn
+hoặc thông qua mã nguồn
     
     git clone https://github.com/ducloi3105/kafka_notify.git
     cd kafka_notify

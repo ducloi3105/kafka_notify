@@ -33,6 +33,7 @@ class KafkaClient(object):
             self.producer.flush()
         except Exception as e:
             raise ServiceError(f'Send event failed: {e}')
+        return True
 
     @staticmethod
     def _create_payload(payload: dict = None):

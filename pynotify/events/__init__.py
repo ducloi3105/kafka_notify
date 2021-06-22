@@ -13,7 +13,12 @@ class Notifications(BaseEvent):
             kafka_client=self.kafka_client,
         )
 
-    def admin(self) -> admin:
+    def admin(self) -> NotificationAdmin:
+        return NotificationAdmin(
+            kafka_client=self.kafka_client,
+        )
+
+    def billing(self) -> NotificationAuth:
         return NotificationAuth(
             kafka_client=self.kafka_client,
         )

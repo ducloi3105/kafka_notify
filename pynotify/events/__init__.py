@@ -18,7 +18,7 @@ class Notifications(BaseEvent):
             kafka_client=self.kafka_client,
         )
 
-    def billing(self) -> NotificationAuth:
-        return NotificationAuth(
+    def billing(self) -> NotificationBilling:
+        return NotificationBilling(
             kafka_client=self.kafka_client,
         )

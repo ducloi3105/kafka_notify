@@ -34,7 +34,7 @@ PyBizfly Billing hỗ trợ đẩy event thông tin tài khoản BizflyCloud
 
 [⬆ Lên đầu](#top)
 
-Ví dụ này biểu diễn cách lấy thông tin chi tiết của một kế hoạch.
+Ví dụ: Gửi event account.updated.
 
 ```python
 import pynotify

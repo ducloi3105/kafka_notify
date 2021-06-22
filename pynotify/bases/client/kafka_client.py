@@ -20,13 +20,13 @@ class KafkaClient(object):
         self.producer = producer
         self.producer = producer
 
-    def send_event(self, topics, key, payload: dict = None):
+    def send_event(self, topic, key, payload: dict = None):
         try:
             payload = self._create_payload(payload)
             payload = json.dumps(payload)
-            print(f"Send event to kafka | {topics} | {key} ==> {payload}")
+            print(f"Send event to kafka | {topic} | {key} ==> {payload}")
             self.producer.send(
-                topics,
+                topic,
                 key=bytes(key, "utf-8"),
                 value=payload,
             )

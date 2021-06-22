@@ -7,7 +7,7 @@ setuptools.setup(
     author="BizFly Cloud",
     author_email="loinguyenduc@vccorp.vn",
     name="bizfly_kafka_notification",
-    version="0.0.0.1",
+    version="0.0.0.2",
     description="BizFly Cloud DevTeam Client in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",

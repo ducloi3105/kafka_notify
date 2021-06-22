@@ -29,8 +29,8 @@ client = pynotify.BizflyNotificationClient(
 )
 ```
 
-<h3 id="plan">Account</h3>
-PyBizfly Billing hỗ trợ đẩy event thông tin tài khoản BizflyCloud
+<h3 id="account">Account</h3>
+PyNotify hỗ trợ đẩy event thông tin tài khoản BizflyCloud
 
 [⬆ Lên đầu](#top)
 
@@ -44,7 +44,7 @@ client = pynotify.BizflyNotificationClient(
     kafka_config={}
 )
 account_updated = client.notification().account().updated(
-    topics=['notification-account-stag'],
+    topic='notification-account-stag',
     tenant_id='ajsdlkajsdlxkcvx1',
     payload={
         'value 1': 2,

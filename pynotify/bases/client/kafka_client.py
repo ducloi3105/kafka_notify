@@ -41,7 +41,6 @@ class KafkaClient(object):
             payload = dict
         now = datetime.utcnow()
         ts = now.replace(tzinfo=timezone.utc)
-        print(ts)
         if not payload.get('eventId'):
             payload['eventId'] = f'{str(str(uuid4().hex))}.' \
                                  f'{int(ts.timestamp())}' \

@@ -15,8 +15,6 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=[
         'kafka-python==2.0.2',
-        'python-dateutil==2.8.1',
-        'python-dotenv==0.18.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

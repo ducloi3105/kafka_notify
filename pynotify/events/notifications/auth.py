@@ -2,8 +2,12 @@ from pynotify.bases.event import BaseEvent
 
 
 class NotificationAuth(BaseEvent):
+    PROJECT_NAME = 'auth'
+
     def created(self, topic, tenant_id, payload):
-        # todo: create user -> send info
+        payload = self.payload_parser(payload)
+        payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.account.created"
+
         return self.kafka_client.send_event(
             topic=topic,
             key=tenant_id,
@@ -11,7 +15,9 @@ class NotificationAuth(BaseEvent):
         )
 
     def logged_in(self, topic, tenant_id, payload):
-        # todo: account logged
+        payload = self.payload_parser(payload)
+        payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.account.loggedIn"
+
         return self.kafka_client.send_event(
             topic=topic,
             key=tenant_id,

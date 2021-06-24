@@ -22,7 +22,6 @@ class KafkaClient(object):
 
     def send_event(self, topic, key, payload: dict = None):
         try:
-            payload = self._create_payload(payload)
             payload = json.dumps(payload)
             print(f"Send event to kafka | {topic} | {key} ==> {payload}")
             self.producer.send(
@@ -34,18 +33,3 @@ class KafkaClient(object):
         except Exception as e:
             raise ServiceError(f'Send event failed: {e}')
         return True
-
-    @staticmethod
-    def _create_payload(payload: dict = None):
-        if not payload:
-            payload = dict
-        now = datetime.utcnow()
-        ts = now.replace(tzinfo=timezone.utc)
-        if not payload.get('eventId'):
-            payload['eventId'] = f'{str(str(uuid4().hex))}.' \
-                                 f'{int(ts.timestamp())}' \
-                                 f'@localhost'
-        if not payload.get('eventTime'):
-            payload['eventTime'] = ts.isoformat()
-
-        return payload

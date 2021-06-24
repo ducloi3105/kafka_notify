@@ -1,5 +1,12 @@
 from pynotify.bases.event import BaseEvent
-from pynotify.events.notifications import *
+from pynotify.events.notifications import (
+    NotificationAdmin,
+    NotificationSuggestion,
+    NotificationBilling,
+    NotificationPromotion,
+    NotificationAuth,
+    NotificationAccount
+)
 
 
 class Notifications(BaseEvent):
@@ -20,5 +27,15 @@ class Notifications(BaseEvent):
 
     def billing(self) -> NotificationBilling:
         return NotificationBilling(
+            kafka_client=self.kafka_client,
+        )
+
+    def suggestion(self) -> NotificationSuggestion:
+        return NotificationSuggestion(
+            kafka_client=self.kafka_client,
+        )
+
+    def promotion(self) -> NotificationPromotion:
+        return NotificationPromotion(
             kafka_client=self.kafka_client,
         )

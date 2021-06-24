@@ -32,8 +32,6 @@ client = pynotify.BizflyNotificationClient(
 <h3 id="account">Account</h3>
 PyNotify hỗ trợ đẩy event thông tin tài khoản BizflyCloud
 
-[⬆ Lên đầu](#top)
-
 Ví dụ: Gửi event account.updated.
 
 ```python
@@ -58,4 +56,4 @@ print("send notify kafka: ", account_updated)
 ```
 - Note: Nếu gửi event không thành công sẽ trả về exception
 
-
+[⬆ Lên đầu](#top)

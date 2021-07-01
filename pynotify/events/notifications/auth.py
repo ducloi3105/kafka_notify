@@ -14,6 +14,16 @@ class NotificationAuth(BaseEvent):
             payload=payload
         )
 
+    def update(self, topic, tenant_id, payload):
+        payload = self.payload_parser(payload)
+        payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.auth.updated"
+
+        return self.kafka_client.send_event(
+            topic=topic,
+            key=tenant_id,
+            payload=payload
+        )
+
     def logged_in(self, topic, tenant_id, payload):
         payload = self.payload_parser(payload)
         payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.account.loggedIn"

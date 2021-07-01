@@ -5,7 +5,7 @@
 
 Cài đặt sử dụng thông qua**pip**
 
-    pip install git+https://github.com/ducloi3105/kafka_notify.git
+    pip install git+https://github.com/ducloi3105/kafka_notify.git#egg=bizfly_kafka_notification
 
 hoặc thông qua mã nguồn
     

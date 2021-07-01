@@ -9,7 +9,7 @@ from pynotify.events import Notifications
 class BizflyNotificationClient(object):
     def __init__(self,
                  kafka_servers: list,
-                 kafka_retries: int,
+                 kafka_retries: int = 2,
                  kafka_config: dict = None
                  ):
         self.kafka_client = KafkaClient(

@@ -14,7 +14,7 @@ class NotificationAuth(BaseEvent):
             payload=payload
         )
 
-    def update(self, topic, tenant_id, payload):
+    def updated(self, topic, tenant_id, payload):
         payload = self.payload_parser(payload)
         payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.auth.updated"
 

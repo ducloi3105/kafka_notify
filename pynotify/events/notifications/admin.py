@@ -144,6 +144,45 @@ class NotificationAdmin(BaseEvent):
             payload=payload
         )
 
+    def service_updated(self, topic, tenant_id, payload):
+        payload = self.payload_parser(payload)
+
+        if not payload.get('service_name'):
+            raise ClientError('Payload: service_name required')
+        payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.service.{payload['service_name']}.updated"
+
+        return self.kafka_client.send_event(
+            topic=topic,
+            key=tenant_id,
+            payload=payload
+        )
+
+    def service_suspended(self, topic, tenant_id, payload):
+        payload = self.payload_parser(payload)
+
+        if not payload.get('service_name'):
+            raise ClientError('Payload: service_name required')
+        payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.service.{payload['service_name']}.suspended"
+
+        return self.kafka_client.send_event(
+            topic=topic,
+            key=tenant_id,
+            payload=payload
+        )
+
+    def service_deleted(self, topic, tenant_id, payload):
+        payload = self.payload_parser(payload)
+
+        if not payload.get('service_name'):
+            raise ClientError('Payload: service_name required')
+        payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.service.{payload['service_name']}.deleted"
+
+        return self.kafka_client.send_event(
+            topic=topic,
+            key=tenant_id,
+            payload=payload
+        )
+
     def manage_blocked_updated(self, topic, tenant_id, payload):
         payload = self.payload_parser(payload)
         payload['eventName'] = f"{payload['env']}.{self.PROJECT_NAME}.manage.blocked.updated"

@@ -26,17 +26,4 @@ class BaseEvent(object):
         if 'env' not in payload:
             raise ClientError('Payload: env required')
 
-        if 'service_name' in payload:
-            try:
-                service_names = payload['service_name'].split('_')
-                sns = []
-                for i, sn in enumerate(service_names):
-                    if i != 0:
-                        sn = sn.title()
-                    sns.append(sn)
-
-                payload['service_name'] = ''.join(sns)
-            except:
-                pass
-        print(payload)
         return payload

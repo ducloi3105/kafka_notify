@@ -5,7 +5,8 @@ from pynotify.events.notifications import (
     NotificationBilling,
     NotificationPromotion,
     NotificationAuth,
-    NotificationAccount
+    NotificationAccount,
+    NotificationWebmail,
 )
 
 
@@ -37,5 +38,10 @@ class Notifications(BaseEvent):
 
     def promotion(self) -> NotificationPromotion:
         return NotificationPromotion(
+            kafka_client=self.kafka_client,
+        )
+
+    def webmail(self) -> NotificationWebmail:
+        return NotificationWebmail(
             kafka_client=self.kafka_client,
         )

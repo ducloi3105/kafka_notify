@@ -22,7 +22,6 @@ class KafkaClient(object):
 
     def send_event(self, topic, key, payload: dict = None):
         try:
-            payload = json.dumps(payload)
             print(f"Send event to kafka | {topic} | {key} ==> {payload}")
             self.producer.send(
                 topic,
